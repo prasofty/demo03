@@ -1,0 +1,77 @@
+<%= form_for @employee, :url => (@employee.new_record? ? admin_employees_path : admin_employee_path(@employee)), :html => {:role => "role", :class => "form-horizontal"} do |f| %>
+    <%= f.error_messages %>
+    <%= f.fields_for :user do |u| %>
+        <div class="form-group">
+          <%= u.label :email, :class => "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= u.text_field :email, :class => "form-control", :placeholder => "Email" %>
+          </div>
+        </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :code, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :code, :class => "form-control", :placeholder => "Code" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :surname, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :surname, :class => "form-control", :placeholder => "Surname" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :name, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <div class="row">
+          <div class="col-lg-6">
+            <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+          </div>
+          <div class="col-lg-6">
+            <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :birth_date, 'Date of Birth', :class => "col-lg-4 control-label" %>
+          <div class="col-lg-6">
+            <%= f.text_field :birth_date, :class => "form-control", :placeholder => "YYYY-MM-DD" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :join_date, 'Date of Join', :class => "col-lg-4 control-label" %>
+          <div class="col-lg-6">
+            <%= f.text_field :join_date, :class => "form-control", :placeholder => "YYYY-MM-DD" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :contact_mobile, :class => "col-lg-4 control-label" %>
+          <div class="col-lg-6">
+            <%= f.text_field :contact_mobile, :class => "form-control", :placeholder => "Contact Mobile No" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <div class="picture_div">
+            <%= image_tag @employee.picture.url(:medium), :class => "img-thumbnail employee_picture_img" %>
+            <%= f.file_field :picture, :style => "display:none;" %>
+            <div class="change_image_btn">
+              Change Picture
+              <span class="glyphicon glyphicon-edit"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit :create, :value => (@employee.new_record? ? "Create":"Update"), :class => "btn btn-primary" %>
+        &nbsp;&nbsp;&nbsp;
+        <%= link_to "Back", admin_employees_path %>
+      </div>
+    </div>
+<% end %>
