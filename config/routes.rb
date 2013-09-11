@@ -7,6 +7,7 @@ Demo03::Application.routes.draw do
   end
   namespace :admin do
     resources :employees
+    resources :admin_users
   end
 
 

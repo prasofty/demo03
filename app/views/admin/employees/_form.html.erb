@@ -42,7 +42,7 @@
     <div class="form-group">
       <%= f.label :role, :class => "col-lg-2 control-label" %>
       <div class="col-lg-10">
-        <%= f.select :role, options_for_select(Employee::ROLES.collect {|r| [r.humanize, r]}), :include_blank => true, :class => "form-control" %>
+        <%= f.select :role, options_for_select(Employee::ROLES.collect {|r| [r.humanize, r]}), {:include_blank => true}, {:class => "form-control"} %>
       </div>
     </div>
     <div class="row">

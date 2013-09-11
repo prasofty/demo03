@@ -2,9 +2,19 @@
   <h4><%= "#{@employee.name}'s Profile"%></h4>
 </div>
 
-
 <div class="row">
   <div class="col-lg-6">
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          <div class="employee_picture">
+            <%= image_tag @employee.picture.url(:medium), :class => "img-thumbnail" %>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
     <div class="row">
       <div class="col-lg-4">
         <div class="employee_picture">
