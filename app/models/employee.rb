@@ -1,4 +1,8 @@
 class Employee < ActiveRecord::Base
+
+
+  ROLES = ["manager", "hr"]
+
   attr_accessible :user_id, :code, :surname, :first_name, :last_name, :birth_date, :join_date, :contact_mobile, :picture,
                   :user_attributes
 
