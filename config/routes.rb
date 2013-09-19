@@ -1,5 +1,7 @@
 Demo03::Application.routes.draw do
 
+  apipie
+
   resources :admin, :only => [:index], :controller => :admin do
     collection do
 

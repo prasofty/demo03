@@ -3,6 +3,8 @@ class AdminController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authenticate_admin!
 
+  api :GET, '/users/:id'
+  param :id, :number
   def index
 
   end
